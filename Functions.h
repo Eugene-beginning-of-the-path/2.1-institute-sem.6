@@ -13,8 +13,10 @@ void Set_arr(AEROFLOT *arr)
 	{
 		cout << "--------- " << i + 1 << " block ---------" << endl;
 
+		char *f_Name_of_destination = nullptr;
 		cout << "¬ведите пункт назначени€: ";
-		cin >> arr[i].Name_of_destination;
+		cin >> f_Name_of_destination;
+		arr[i].Name_of_destination = f_Name_of_destination;
 
 		cout << "¬ведите номер рейса: ";
 		cin >> arr[i].number_flight;
@@ -33,11 +35,11 @@ void Sort_arr(AEROFLOT* arr)
 		if (i == SIZE - 1)
 			continue;
 
-		string simvol_1 = arr[i].Name_of_destination;
-		string simvol_2 = arr[i+1].Name_of_destination;
+		char* simvol_1 = arr[i].Name_of_destination;
+		char* simvol_2 = arr[i+1].Name_of_destination;
 		if (simvol_1[0] > simvol_2[0])
 		{
-			string temp = arr[i].Name_of_destination;
+			char* temp = arr[i].Name_of_destination;
 			arr[i].Name_of_destination = arr[i + 1].Name_of_destination;
 			arr[i + 1].Name_of_destination = temp;
 		}
