@@ -35,7 +35,7 @@ namespace AE
 		cout << "----------------------------" << endl;
 	}
 
-	void Show_arr(AE::AEROFLOT* arr, int block = -1)
+	void Show_arr(AE::AEROFLOT* arr, int block = -1) //block - передает индекс определенно интересующего нас "блока" для вывода
 	{
 		cout << endl << "Вывод информации: " << endl;
 		if (block == -1)
@@ -51,7 +51,7 @@ namespace AE
 				cout << "Тип самолета: ";
 				cout << arr[i].type_of_air << endl;
 			}
-		else
+		else //block - передает индекс определенно интересующего нас "блока" для вывода
 		{
 			cout << "--------- " << arr[block].type_of_air << " ---------" << endl;
 			cout << "Пункт назначения: ";
@@ -73,11 +73,11 @@ namespace AE
 
 			string simvol_1 = arr[i].Name_of_destination;
 			string simvol_2 = arr[i + 1].Name_of_destination;
-			if (simvol_1[0] > simvol_2[0])
+			if (simvol_1[0] > simvol_2[0]) //стоит добавить, если первые буквы равны, и последующие тоже
 			{
-				string temp = arr[i].Name_of_destination;
-				arr[i].Name_of_destination = arr[i + 1].Name_of_destination;
-				arr[i + 1].Name_of_destination = temp;
+				AE::AEROFLOT temp = arr[i];
+				arr[i] = arr[i + 1];
+				arr[i + 1] = temp;
 			}
 		}
 		Show_arr(arr);
